@@ -21,6 +21,7 @@ body {
   text-align: right;
   font-style: italic;
   font-size: 20px;
+  margin-top: 10px;
 }
 
 .buttons {
@@ -32,11 +33,13 @@ body {
 .fab {
   font-size: 40px;
   padding: 8px;
+  color: #1da1f2;
 }
 
 #new-quote {
   font-size: 18px;
-  padding: 8px;
+  padding: 15px 10px;
   border-radius: 10px;
-  background: DodgerBlue;
+  background: #e1e8ed;
+  flex-shrink: 1;
 }
