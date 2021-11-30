@@ -23,34 +23,54 @@ const dbQuotes = [
     text: "Live as long as you may, the first twenty years are the longest half of your life. They appear so while they are passing; they seem to have been so when we look back on them; and they take up more room in our memory than all the years that succeed them.Shedding one’s skin. The snake that cannot shed its skin perishes. So do the spirits who are prevented from changing their opinions; they cease to be spirit.",
     author: "-Robert Southey",
   },
+  {
+    text: "Be who you needed when you were younger.",
+    author: "- T.S. Elliot",
+  },
+  {
+    text: "You will never change your life until you change something you do daily.",
+    author: "- John Maxwell",
+  },
+  {
+    text: "Life is not even close to being as logically consistent as our worries; it has many more unexpected ideas and many more facts than we do. ",
+    author: "- Rilke",
+  },
+  {
+    text: "All cruelty springs from weakness.",
+    author: "- Seneca",
+  },
 ];
 
 function App() {
-  function randomIndex(max) {
-    Math.floor(Math.random() * max);
-  }
+  let defaultIndex = Math.floor(Math.random() * dbQuotes.length);
+  let defaultQuote = dbQuotes[defaultIndex];
 
-  let randomQuote = dbQuotes[randomIndex(dbQuotes.length)];
-  const [quote, setQuote] = useState({
-    text: "Live as long as you may, the first twenty years are the longest half of your life. They appear so while they are passing; they seem to have been so when we look back on them; and they take up more room in our memory than all the years that succeed them.Shedding one’s skin. The snake that cannot shed its skin perishes. So do the spirits who are prevented from changing their opinions; they cease to be spirit.",
-    author: "-Robert Southey",
-  });
+  const [quote, setQuote] = useState(defaultQuote);
 
   function handleClick() {
+    let randomIndex = Math.floor(Math.random() * dbQuotes.length);
+    let randomQuote = dbQuotes[randomIndex];
     setQuote(randomQuote);
   }
 
   return (
-    <div id="quote-box">
-      <div id="text">{quote.text}</div>
-      <div id="author">{quote.author}</div>
-      <div className="buttons">
-        <a href="twitter.com/intent/tweet" target="_blank" id="tweet-quote">
-          <i className="fab fa-twitter-square"></i>
-        </a>
-        <button onClick={handleClick} id="new-quote">
-          New Quote
-        </button>
+    <div>
+      <div id="quote-box">
+        <div id="text">{quote.text}</div>
+        <div id="author">{quote.author}</div>
+        <div className="buttons">
+          <a
+            href={`twitter.com/intent/tweet?text=${quote.text}-${quote.author}`}
+            target="_blank"
+            id="tweet-quote"
+            rel="noreferrer noopener"
+          >
+            <i className="fab fa-twitter-square"></i>
+          </a>
+          <button onClick={handleClick} id="new-quote">
+            New Quote
+          </button>
+        </div>
       </div>
     </div>
   );
